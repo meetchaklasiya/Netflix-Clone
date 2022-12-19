@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    <link href='https://css.gg/play-button.css' rel='stylesheet'>
+    <link href='https://css.gg/arrow-right.css' rel='stylesheet'>
+    <link href='https://css.gg/arrow-left.css' rel='stylesheet'>
+    <link href='https://css.gg/list.css' rel='stylesheet'>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    html {
+        font-size: 62.5%;
+    }
+
+    body {
+        font-family: 'Netflix Sans', sans-serif;
+        background-color: #111;
+
+    }
+
+    .navbar {
+        display: flex;
+        align-content: center;
+        justify-content: space-between;
+        height: 12vh;
+        width: 100%;
+        background-color: #111;
+    }
+
+    .navbarleft img {
+        height: 11vh;
+        padding: 2rem;
+    }
+
+    .navbarleft {
+        flex-basis: 70%;
+    }
+
+    .navbarright {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-basis: 30%;
+        color: white;
+        white-space: nowrap;
+        font-size: 2rem;
+        padding: 2rem;
+    }
+
+    .videocontainer video {
+        width: 100%;
+        height: 88vh;
+        object-fit: cover;
+        object-position: center;
+
+    }
+
+    .bigcontainer {
+        position: relative;
+    }
+
+    .videocontent {
+        position: absolute;
+        top: 50%;
+        left: 5%;
+        width: 90%;
+    }
+
+    .videocontent h1 {
+        font-size: 3.5rem;
+        background: linear-gradient(to right, red, purple, pink);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 1rem;
+    }
+
+    .videocontent h2 {
+        font-size: 2.5rem;
+        color: white;
+        margin-bottom: 4rem;
+    }
+
+    .buttons {
+        margin-bottom: 2rem;
+        display: flex;
+    }
+
+    .description {
+        width: 60%;
+        color: white;
+        font-size: 1.5rem;
+    }
+    .gg-list{
+        margin-right: 1rem;
+    }
+    .play {
+        width: 7%;
+        font-size: 2rem;
+        border: 3px solid black;
+        background: transparent;
+        color: white;
+        margin-right: 1.5rem;
+            display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+
+    .list {
+        width: 8%;
+        font-size: 2rem;
+        border: 3px solid black;
+        background: transparent;
+        color: white;
+        white-space: nowrap;
+        display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+
+    .moviesimage {
+        display: flex;
+        position: relative;
+
+    }
+
+    .gg-arrow-left {
+        position: absolute;
+        color: red;
+        top: 35%;
+        cursor: pointer;
+        margin-left: 0.5rem;
+    }
+    
+    .gg-arrow-right {
+        position: absolute;
+        color: red;
+        top: 35%;
+        cursor: pointer;
+        right: 0;
+        margin-right: 0.5rem;
+    }
+    .moviesimage ::-webkit-scrollbar{
+        display: none;
+    }
+    .images img:hover {
+        transform: scale(1.1);
+        cursor: pointer;
+    }
+    .images img {
+        transition: all 0.5s;
+    }
+
+    .images {
+        display: flex;
+        width: 96%;
+        height: 35vh;
+        position: relative;
+        overflow-x: scroll;
+        margin-left: 4rem;
+        
+    }
+
+    .moviescontainer h1 {
+        font-size: 3rem;
+        color: white;
+        margin: 3rem;
+    }
+    .moviescontainer h2 {
+        font-size: 2.5rem;
+        color: white;
+        margin: 3rem;
+    }
+
+    
+    .div img{
+        width: 29.9rem;
+        height: 16.9rem;
+    }
+
+    #img-8 {
+        margin-right: 3rem;
+    }
+
+    .div img {
+        margin-right: 2rem;
+    }
+
+    .div {
+        position: relative;
+    }
+
+    .name {
+        color: white;
+        position: absolute;
+        width: 96%;
+        font-size: 1.5rem;
+        margin-top: 1rem;
+        text-align: center;
+
+    }
+    .btn{
+        position: absolute;
+    top: 50%;
+    display: flex;
+    left: -6%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    }
+    .play1{
+        width: 20%;
+    font-size: 2rem;
+    border: 3px solid black;
+    background: transparent;
+    color: white;
+    margin-right: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    visibility: hidden;
+    cursor: pointer;
+    }
+    .list1{
+        width: 24%;
+    font-size: 2rem;
+    border: 3px solid black;
+    background: transparent;
+    color: white;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+    .images1:hover .play1{
+        visibility: visible;
+    }
+    .containerseventh{
+        width: 100%;
+        background-color: black;
+    }
+    .phonenumber{
+        font-size: 2rem;
+        margin-top: 5.0rem;
+        margin-left: 20%;
+        color:#737373 ;
+    }
+    .item{
+        font-size: 2rem;
+        display: flex;
+        color: #737373;
+        margin-left: 20%;
+    }
+    .netflixindia{
+        font-size: 2rem;
+        color: #737373;
+        margin-left: 20%;
+        padding-bottom: 2.0rem;
+    }
+    .ones,.twice,.thrice,.forth{
+        display: flex;
+        flex-direction: column;
+    }
+    #one1,#two1,#threee1,#four1{
+        margin-top: 4.0rem;
+    }
+    .one{
+        margin: 1.0rem 0;
+        margin-right: 5.0rem;
+    }
+    .two{
+        margin: 1.0rem 5.0rem;
+    }
+    .three{
+        margin: 1.0rem 5.0rem;
+    }
+    .four{
+        margin: 1.0rem 5.0rem;
+    }
+    .border {
+        background: transparent;
+        border-bottom: 0.8rem solid #222;
+        color: #fff;
+        margin-bottom: 0;
+    }
+    #language1{
+        height: 6vh;
+        margin: 2.0rem 20%;
+        background-color: transparent;
+        color: white;
+        font-size: 1.6rem;
+
+    }
+
+    .play1:hover{
+        color: white;
+        border: 3px solid white;
+    }
+
+    @media (max-width:768px) {
+        html {
+            font-size: 50%;
+        }
+        .navbar{
+            height: 8vh;
+        }
+        .navbarleft img {
+    height: 7vh;
+        }
+        .bigcontainer {
+    position: relative;
+    height: 78vh;
+}
+.videocontent{
+    top: 40%;
+}
+.videocontainer video {
+    height: 75vh;
+    
+}
+.gg-arrow-left{
+        top: 20%;
+
+}
+.gg-arrow-right{
+        top: 20%;
+
+}
+.images {
+        height: 30vh;
+}
+        .play{
+            width: auto;
+        }
+        .list{
+            width: auto;
+        }
+        .containerseventh {
+    height: 60vh;
+}
+
+
+        .one,.two,.three,.four{
+            margin:1rem 0;
+        }
+        .phonenumber{
+            margin-left: 0;
+            font-size: 1rem;
+        }
+        .item{
+            margin-left: 0;
+            font-size: 1rem;
+        }
+        .netflixindia{
+            margin-left: 0;
+            font-size: 1rem;
+        }
+        #language1{
+            margin: 2rem 0;
+        }
+
+    }
+
+   @media (min-width:768px) and (max-width:1300px) {
+         html {
+            font-size: 57%;
+        }
+        .navbar{
+            height: 10vh;
+        }
+        .navbarleft img {
+    height: 9vh;
+        }
+        .images{
+                height: 30vh;
+        }
+         .play{
+            width: auto;
+        }
+        .list{
+            width: auto;
+        }
+   }
+</style>
+
+<body>
+    <div class="navbar">
+        <div class="navbarleft">
+            <img src="../Netflix_2015_logo.svg.png" alt="">
+        </div>
+        <div class="navbarright">
+            Unlimited TV shows and Movies
+        </div>
+    </div>
+
+    <div class="bigcontainer">
+
+        <div class="videocontent" id="Hello">
+            <h1 id="namemov">Avengers : End Game</h1>
+            <h2 id="release">2017 || Action , Thriller</h2>
+            <div class="buttons">
+                <button class="play" id="playbtn"><i class="gg-play-button"></i>Play</button>
+                <button class="list"><i class="gg-list"></i>My List</button>
+            </div>
+            <p class="description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam nihil adipisci ratione. Error,
+                voluptatem qui odit ipsam laboriosam unde fugit ad, eveniet rerum, aperiam quos provident voluptate
+                eaque? Consectetur, quisquam!
+            </p>
+        </div>
+        <div class="videocontainer">
+            <video id="videosource" class="video" autoplay loop muted src="/videomarvel.mp4">
+                
+            </video>
+        </div>
+    </div>
+
+    <div class="moviescontainer">
+        <h1>Trending Movies</h1>
+        <div class="moviesimage">
+            <i class="gg-arrow-left" id="arrowleft"></i>
+            <div class="images" id="imagesmove">
+                <div class="div">
+                    <img class="image1" id="img-1" src="rrr.jpg" alt="">
+                    <div id="img1name" class="name">Adam Project</div>
+                </div>
+                <div class="div">
+                    <img id="img-2" src="../images (18).png" alt="">
+                    <div id="img2name" class="name">Bypass Road</div>
+                </div>
+                <div class="div" >
+                    <img id="img-3" src="../images (12).png" alt="">
+                    <div id="img3name" class="name">Mis Matched</div>
+                </div>
+                <div class="div">
+                    <img id="img-4" src="../images (16).png" alt="">
+                    <div id="img4name" class="name">Psycho</div>
+                </div>
+                <div class="div">
+                    <img id="img-5" src="../images (15).png" alt="">
+                    <div id="img5name" class="name">Ghost Stories</div>
+                </div>
+                <div class="div">
+                    <img id="img-6" src="../images (14).png" alt="">
+                    <div id="img6name" class="name">Red</div>
+                </div>
+                <div class="div">
+                    <img id="img-7" src="../images (13).png" alt="">
+                    <div id="img7name" class="name">Carter</div>
+                </div>
+                <div class="div" >
+                    <img id="img-8" src="../images (12).png" alt="">
+                    <div id="img8name" class="name">Mis Matched</div>
+                </div>
+                <div class="div" >
+                    <img id="img-9" src="../images (12).png" alt="">
+                    <div id="img9name" class="name">Mis Matched</div>
+                </div>
+                <div class="div" >
+                    <img id="img-10" src="../images (12).png" alt="">
+                    <div id="img10name" class="name">Mis Matched</div>
+                </div>
+                <div class="div" >
+                    <img id="img-11" src="../images (12).png" alt="">
+                    <div id="img11name" class="name">Mis Matched</div>
+                </div>
+                <div class="div" >
+                    <img id="img-12" src="../images (12).png" alt="">
+                    <div id="img12name" class="name">Mis Matched</div>
+                </div>
+                <div class="div" >
+                    <img id="img-13" src="../images (12).png" alt="">
+                    <div id="img13name" class="name">Mis Matched</div>
+                </div>
+                
+
+
+
+            </div>
+            <i class="gg-arrow-right" id="arrowright"></i>
+
+        </div>
+
+    </div>
+
+    <div class="moviescontainer">
+        <h2>Action Movies</h2>
+        <div class="moviesimage">
+            <i class="gg-arrow-left" id="arrowleft1"></i>
+            <div class="images" id="imagesmove1">
+                <div class="div">
+                    <img class="image1" id="img-1" src="rrr.jpg" alt="">
+                    <div id="img1name" class="name">RRR</div>
+                </div>
+                <div class="div">
+                    <img id="img-2" src="avenger.jpg" alt="">
+                    <div id="img2name" class="name">Avenger End Game</div>
+                </div>
+                <div class="div" >
+                    <img id="img-3" src="godzilla.jpg" alt="">
+                    <div id="img3name" class="name">Godzilla vs Kong</div>
+                </div>
+                <div class="div">
+                    <img id="img-4" src="mission.jpg" alt="">
+                    <div id="img4name" class="name">Mission Impossible</div>
+                </div>
+                <div class="div">
+                    <img id="img-5" src="kantara.jpg" alt="">
+                    <div id="img5name" class="name">Kantara</div>
+                </div>
+                <div class="div">
+                    <img id="img-6" src="../images (14).png" alt="">
+                    <div id="img6name" class="name">Red</div>
+                </div>
+                <div class="div">
+                    <img id="img-7" src="../images (13).png" alt="">
+                    <div id="img7name" class="name">Carter</div>
+                </div>
+                <div class="div" >
+                    <img id="img-8" src="jumanji.jpg" alt="">
+                    <div id="img8name" class="name">Jumanji</div>
+                </div>
+                <div class="div" >
+                    <img id="img-9" src="extraction.jpg" alt="">
+                    <div id="img9name" class="name">Extraction</div>
+                </div>
+                <div class="div" >
+                    <img id="img-10" src="lucy.jpg" alt="">
+                    <div id="img10name" class="name">Lucy</div>
+                </div>
+                <div class="div" >
+                    <img id="img-11" src="spiderman.jpg" alt="">
+                    <div id="img11name" class="name">Spiderman</div>
+                </div>
+                <div class="div" >
+                    <img id="img-12" src="uncharted.jpg" alt="">
+                    <div id="img12name" class="name">Uncharted</div>
+                </div>
+                <div class="div" >
+                    <img id="img-13" src="cbi 5.jpg" alt="">
+                    <div id="img13name" class="name">CBI 5</div>
+                </div>
+            </div>
+            <i class="gg-arrow-right" id="arrowright1"></i>
+        </div>
+    </div>
+
+    <div class="moviescontainer">
+        <h2>Indian Movies</h2>
+        <div class="moviesimage">
+            <i class="gg-arrow-left" id="arrowleft2"></i>
+            <div class="images" id="imagesmove2">
+                <div class="div">
+                    <img class="image1" id="img-1" src="bhool.jpg" alt="">
+                    <div id="img1name" class="name">Bhool Bhulaiya 2</div>
+                </div>
+                <div class="div">
+                    <img id="img-2" src="villan.jpg" alt="">
+                    <div id="img2name" class="name">Ek Villan Returns</div>
+                </div>
+                <div class="div" >
+                    <img id="img-3" src="dilwale.jpg" alt="">
+                    <div id="img3name" class="name">Dilwale</div>
+                </div>
+                <div class="div">
+                    <img id="img-4" src="doremon.jpg" alt="">
+                    <div id="img4name" class="name">Doremon</div>
+                </div>
+                <div class="div">
+                    <img id="img-5" src="gangubai.jpg" alt="">
+                    <div id="img5name" class="name">Gangubai Kathiawadi</div>
+                </div>
+                <div class="div" >
+                    <img id="img-8" src="kantara.jpg" alt="">
+                    <div id="img8name" class="name">Kantara</div>
+                </div>
+                <div class="div" >
+                    <img id="img-9" src="rrr.jpg" alt="">
+                    <div id="img9name" class="name">RRR</div>
+                </div>
+                <div class="div">
+                    <img id="img-7" src="../images (13).png" alt="">
+                    <div id="img7name" class="name">Carter</div>
+                </div>
+                <div class="div" >
+                    <img id="img-11" src="../images (12).png" alt="">
+                    <div id="img11name" class="name">Mis Matched</div>
+                </div>
+                <div class="div">
+                    <img id="img-6" src="../images (14).png" alt="">
+                    <div id="img6name" class="name">Red</div>
+                </div>
+                <div class="div" >
+                    <img id="img-12" src="sooryavanshi.jpg" alt="">
+                    <div id="img12name" class="name">Sooryavanshi</div>
+                </div>
+                <div class="div" >
+                    <img id="img-13" src="ghost.jpg" alt="">
+                    <div id="img13name" class="name">The Ghost</div>
+                </div>
+                
+
+
+
+            </div>
+            <i class="gg-arrow-right" id="arrowright2"></i>
+
+        </div>
+
+    </div>
+
+    <div class="moviescontainer">
+        <h2>Thriller Movies</h2>
+        <div class="moviesimage">
+            <i class="gg-arrow-left" id="arrowleft3"></i>
+            <div class="images" id="imagesmove3">
+                <div class="div">
+                    <img class="image1" id="img-1" src="c.jpg" alt="">
+                    <div id="img1name" class="name">Adam Project</div>
+                </div>
+                <div class="div">
+                    <img id="img-2" src="sea.jpg" alt="">
+                    <div id="img2name" class="name">The Sea Beast</div>
+                </div>
+                <div class="div" >
+                    <img id="img-3" src="spiderman.jpg" alt="">
+                    <div id="img3name" class="name">Spiderman</div>
+                </div>
+                <div class="div">
+                    <img id="img-4" src="sonic.jpg" alt="">
+                    <div id="img4name" class="name">Sonic Dash</div>
+                </div>
+                <div class="div">
+                    <img id="img-5" src="slum.jpg" alt="">
+                    <div id="img5name" class="name">Slumberland</div>
+                </div>
+                <div class="div">
+                    <img id="img-6" src="lucy.jpg" alt="">
+                    <div id="img6name" class="name">Lucy</div>
+                </div>
+                <div class="div">
+                    <img id="img-7" src="meg.jpg" alt="">
+                    <div id="img7name" class="name">The Meg</div>
+                </div>
+                <div class="div" >
+                    <img id="img-8" src="avenger.jpg" alt="">
+                    <div id="img8name" class="name">Avenger End Game</div>
+                </div>
+                <div class="div" >
+                    <img id="img-9" src="extraction.jpg" alt="">
+                    <div id="img9name" class="name">Extraction</div>
+                </div>
+                <div class="div" >
+                    <img id="img-10" src="godzilla.jpg" alt="">
+                    <div id="img10name" class="name">Godzilla vs Kong</div>
+                </div>
+                <div class="div" >
+                    <img id="img-11" src="sooryavanshi.jpg" alt="">
+                    <div id="img11name" class="name">Sooryavanshi</div>
+                </div>
+                <div class="div" >
+                    <img id="img-12" src="venom.jpg" alt="">
+                    <div id="img12name" class="name">Venom</div>
+                </div>
+                <div class="div" >
+                    <img id="img-13" src="rrr.jpg" alt="">
+                    <div id="img13name" class="name">RRR</div>
+                </div>
+            </div>
+            <i class="gg-arrow-right" id="arrowright3"></i>
+        </div>
+    </div>
+
+    <div class="moviescontainer">
+        <h2>Comedy</h2>
+        <div class="moviesimage">
+            <i class="gg-arrow-left" id="arrowleft4"></i>
+            <div class="images" id="imagesmove4">
+                <div class="div">
+                    <img class="image1" id="img-1" src="t&j.jpg" alt="">
+                    <div id="img1name" class="name">Tom and Jerry</div>
+                </div>
+                <div class="div">
+                    <img id="img-2" src="dilwale.jpg" alt="">
+                    <div id="img2name" class="name">Dilwale</div>
+                </div>
+                <div class="div" >
+                    <img id="img-3" src="../images (12).png" alt="">
+                    <div id="img3name" class="name">Mis Matched</div>
+                </div>
+                <div class="div">
+                    <img id="img-4" src="doremon.jpg" alt="">
+                    <div id="img4name" class="name">Doremon</div>
+                </div>
+                <div class="div">
+                    <img id="img-5" src="mon.jpg" alt="">
+                    <div id="img5name" class="name">Monica O my Darling</div>
+                </div>
+                <div class="div">
+                    <img id="img-6" src="f3.jpg" alt="">
+                    <div id="img6name" class="name">F3 : Fun and Frustation</div>
+                </div>
+                <div class="div">
+                    <img id="img-7" src="chandigarh.jpg" alt="">
+                    <div id="img7name" class="name">Chandigarh kare Ashiqui</div>
+                </div>
+                <div class="div" >
+                    <img id="img-8" src="Chillar.jpg" alt="">
+                    <div id="img8name" class="name">Chillar Party</div>
+                </div>
+                <div class="div" >
+                    <img id="img-9" src="happy new year.jpg" alt="">
+                    <div id="img9name" class="name">Happy New Year</div>
+                </div>
+                <div class="div" >
+                    <img id="img-10" src="scoob.jpg" alt="">
+                    <div id="img10name" class="name">Scoob</div>
+                </div>
+                <div class="div" >
+                    <img id="img-11" src="spongebob movie.jpg" alt="">
+                    <div id="img11name" class="name">Spongebob Movie</div>
+                </div>
+                <div class="div" >
+                    <img id="img-12" src="angry bird 2.jpg" alt="">
+                    <div id="img12name" class="name">Angry Bird 2</div>
+                </div>
+                <div class="div" >
+                    <img id="img-13" src="bhool.jpg" alt="">
+                    <div id="img13name" class="name">Bhool Bhulaiya</div>
+                </div>
+                
+
+
+
+            </div>
+            <i class="gg-arrow-right" id="arrowright4"></i>
+
+        </div>
+
+    </div>
+
+    <div class="moviescontainer">
+        <h2>Action Thriller</h2>
+        <div class="moviesimage">
+            <i class="gg-arrow-left" id="arrowleft5"></i>
+            <div class="images" id="imagesmove5">
+                <div class="div">
+                    <img class="image1" id="img-1" src="meg.jpg" alt="">
+                    <div id="img1name" class="name">The Meg</div>
+                </div>
+                <div class="div">
+                    <img id="img-2" src="spiderman.jpg" alt="">
+                    <div id="img2name" class="name">spiderman</div>
+                </div>
+                <div class="div" >
+                    <img id="img-3" src="heros.jpg" alt="">
+                    <div id="img3name" class="name">We can be Heros</div>
+                </div>
+                <div class="div">
+                    <img id="img-4" src="lucy.jpg" alt="">
+                    <div id="img4name" class="name">Lucy</div>
+                </div>
+                <div class="div">
+                    <img id="img-5" src="kantara.jpg" alt="">
+                    <div id="img5name" class="name">Kantara</div>
+                </div>
+                <div class="div">
+                    <img id="img-6" src="mission.jpg" alt="">
+                    <div id="img6name" class="name">Mission Impossible</div>
+                </div>
+                <div class="div">
+                    <img id="img-7" src="../images (13).png" alt="">
+                    <div id="img7name" class="name">Carter</div>
+                </div>
+                <div class="div" >
+                    <img id="img-8" src="villan.jpg" alt="">
+                    <div id="img8name" class="name">Ek Villian Returns</div>
+                </div>
+                <div class="div" >
+                    <img id="img-9" src="avenger.jpg" alt="">
+                    <div id="img9name" class="name">Avenger End Game</div>
+                </div>
+                <div class="div" >
+                    <img id="img-10" src="godzilla.jpg" alt="">
+                    <div id="img10name" class="name">Godzilla vs Kong</div>
+                </div>
+                <div class="div" >
+                    <img id="img-11" src="ghost.jpg" alt="">
+                    <div id="img11name" class="name">The Ghost</div>
+                </div>
+                <div class="div" >
+                    <img id="img-12" src="jumanji.jpg" alt="">
+                    <div id="img12name" class="name">Jumanji</div>
+                </div>
+                <div class="div" >
+                    <img id="img-13" src="extraction.jpg" alt="">
+                    <div id="img13name" class="name">Extractioon</div>
+                </div>
+            </div>
+            <i class="gg-arrow-right" id="arrowright5"></i>
+        </div>
+    </div>
+
+    <div class="containerseventh">
+        <div class="border"></div>
+        <div class="footer">
+            <div class="phonenumber">Questions? Call 000-800-919-1694</div>
+            <div class="item">
+                <div class="ones">
+                    <div id="one1" class="one">FAQ</div>
+                    <div id="one2" class="one">Investor relations</div>
+                    <div id="one3" class="one">Privacy</div>
+                    <div id="one4" class="one">Speed Test</div>
+                </div>
+                <div class="twice">
+                    <div id="two1" class="two">Help Center</div>
+                    <div id="two2" class="two">Jobs</div>
+                    <div id="two3" class="two">Cookie Preferences</div>
+                    <div id="two4" class="two">Legal Notices</div>
+                </div>
+                <div class="thrice">
+                    <div id="threee1" class="three">Account</div>
+                    <div id="threee2" class="three">Ways to Watch</div>
+                    <div id="threee3" class="three">Corporate Information</div>
+                    <div id="threee4" class="three">Only on Netflix</div>
+                </div>
+                <div class="forth">
+                    <div id="four1" class="four">Media Centre</div>
+                    <div id="four2" class="four">Terms of use</div>
+                    <div id="four3" class="four" >Contact Us</div>
+                </div>
+            </div>
+            <select name="" id="language1">
+                <option value="English" selected>English</option>
+                <option value="Hindi">Hindi</option>
+            </select>
+            <div class="netflixindia">Netflix India (Meet Chaklasiya)</div>
+        </div>
+    </div>
+
+
+<script>
+
+
+        let array = ['mismatched.mp4', 'thor.mp4', 'videomarvel.mp4','rrr.mp4','gangu.mp4','monet.mp4']
+
+        var video = array[Math.floor(Math.random() * 6)]
+
+        let x = document.getElementById("videosource")
+        let moviename = document.getElementById("namemov")
+        let release = document.getElementById("release")
+        let hello = document.getElementById("hello")
+        x.src = `${video}`      
+        console.log(x.src)
+
+        if(x.src == "http://127.0.0.1:5500/thor.mp4"){
+            moviename.innerText = "Thor : Ragnarok"
+            release.innerText = "2017 || Action , Sci-Fi, Adventure"
+
+        }
+        else if(x.src == "http://127.0.0.1:5500/mismatched.mp4"){
+            moviename.innerText = "Mis Matched"
+            release.innerText = "2020 || Comedy , Romance"
+        }
+        else if(x.src == "http://127.0.0.1:5500/monet.mp4"){
+            moviename.innerText = "Money Heist"
+            release.innerText = "2020 || Action , Thriller , Suspense"
+        }
+        else if(x.src == "http://127.0.0.1:5500/rrr.mp4"){
+            moviename.innerText = "RRR"
+            release.innerText = "2021 || Action , Thriller , Drama"
+        }
+        else if(x.src == "http://127.0.0.1:5500/gangu.mp4"){
+            moviename.innerText = "Gangubai Kathiawadi"
+            release.innerText = "2022 || Action , Drama"
+        }
+
+        
+
+        // arrowfunction 
+        let imagesmove = document.getElementById("imagesmove")
+        let arrowleft = document.getElementById('arrowleft')
+
+        arrowleft.addEventListener('click', e=>{
+            imagesmove.scrollLeft += 310;
+            imagesmove.style.scrollBehavior = "smooth";
+        })
+
+        let arrowright = document.getElementById('arrowright')
+        arrowright.addEventListener('click', e=>{
+            imagesmove.scrollLeft -= 310;
+            imagesmove.style.scrollBehavior = "smooth"
+        })
+
+        let imagesmove1 = document.getElementById("imagesmove1")
+        let arrowleft1 = document.getElementById('arrowleft1')
+        arrowleft1.addEventListener('click', e=>{
+            imagesmove1.scrollLeft += 310;
+            imagesmove1.style.scrollBehavior = "smooth";
+        })
+
+        let arrowright1 = document.getElementById('arrowright1')
+        arrowright1.addEventListener('click', e=>{
+            imagesmove1.scrollLeft -= 310;
+            imagesmove1.style.scrollBehavior = "smooth"
+        })
+
+        
+
+        let imagesmove2 = document.getElementById("imagesmove2")
+        let arrowleft2 = document.getElementById('arrowleft2')
+        arrowleft2.addEventListener('click', e=>{
+            imagesmove2.scrollLeft += 310;
+            imagesmove2.style.scrollBehavior = "smooth";
+        })
+
+        let arrowright2 = document.getElementById('arrowright2')
+        arrowright2.addEventListener('click', e=>{
+            imagesmove2.scrollLeft -= 310;
+            imagesmove2.style.scrollBehavior = "smooth"
+        })
+
+        let imagesmove3 = document.getElementById("imagesmove3")
+        let arrowleft3 = document.getElementById('arrowleft3')
+        arrowleft3.addEventListener('click', e=>{
+            imagesmove3.scrollLeft += 310;
+            imagesmove3.style.scrollBehavior = "smooth";
+        })
+
+        let arrowright3 = document.getElementById('arrowright3')
+        arrowright3.addEventListener('click', e=>{
+            imagesmove3.scrollLeft -= 310;
+            imagesmove3.style.scrollBehavior = "smooth"
+        })
+
+        let imagesmove4 = document.getElementById("imagesmove4")
+        let arrowleft4 = document.getElementById('arrowleft4')
+        arrowleft4.addEventListener('click', e=>{
+            imagesmove4.scrollLeft += 310;
+            imagesmove4.style.scrollBehavior = "smooth";
+        })
+
+        let arrowright4 = document.getElementById('arrowright4')
+        arrowright4.addEventListener('click', e=>{
+            imagesmove4.scrollLeft -= 310;
+            imagesmove4.style.scrollBehavior = "smooth"
+        })
+
+        let imagesmove5 = document.getElementById("imagesmove5")
+        let arrowleft5 = document.getElementById('arrowleft5')
+        arrowleft5.addEventListener('click', e=>{
+            imagesmove5.scrollLeft += 310;
+            imagesmove5.style.scrollBehavior = "smooth";
+        })
+
+        let arrowright5 = document.getElementById('arrowright5')
+        arrowright5.addEventListener('click', e=>{
+            imagesmove5.scrollLeft -= 310;
+            imagesmove5.style.scrollBehavior = "smooth"
+        })
+       
+        
+        let img1 = document.getElementById("img-1");
+        let img2 = document.getElementById("img-2");
+        let img3 = document.getElementById("img-3");
+        let img4 = document.getElementById("img-4");
+        let img5 = document.getElementById("img-5");
+        let img6 = document.getElementById("img-6");
+        let img7 = document.getElementById("img-7");
+        let img8 = document.getElementById("img-8");
+        let img9 = document.getElementById("img-9");
+        let img10 = document.getElementById("img-10");
+        let img11 = document.getElementById("img-11");
+        let img12 = document.getElementById("img-12");
+        let img13 = document.getElementById("img-13");
+        let img14 = document.getElementById("img-14");
+        let img15 = document.getElementById("img-15");
+        let img16 = document.getElementById("img-16");
+        
+
+        
+       let pictures = ['a.png','b.png','c.jpg','d.jpg','kantara.jpg','love.jpg','meg.jpg','lucy.jpg','mon.jpg','mission.jpg','rrr.jpg','uncharted.jpg','sonic.jpg','venom.jpg','sooryavanshi.jpg','cbi 5.jpg'] 
+
+        let picturesname = ['Fantasy Island','Oxygen','Adam Project','Bypass Road','Kantara','Love Today','The Meg','Lucy','Monica O my Darling','Mission Immpossible','RRR','Uncharted','Sonic','Venom','Sooryavanshi','CBI 5']
+            
+        
+        let randomind = Math.floor(Math.random()*16)
+        console.log(randomind)
+        
+
+        const index = array.indexOf(randomind)  
+        console.log(index)
+        
+
+        const element = pictures.splice(index,1)
+        console.log(element)
+        const elementname = picturesname.splice(index,1)
+        img1.src = `${element}`
+        document.getElementById("img1name").innerText = `${elementname}`
+
+        const element1 = pictures.splice(index,1)
+        const elementname1 = picturesname.splice(index,1)
+        img2.src = `${element1}`
+        document.getElementById("img2name").innerText = `${elementname1}`
+
+        const element2 = pictures.splice(index,1)
+        const elementname2 = picturesname.splice(index,1)
+        img3.src = `${element2}`
+        document.getElementById("img3name").innerText = `${elementname2}`
+
+        const element3 = pictures.splice(index,1)
+        const elementname3 = picturesname.splice(index,1)
+        img4.src = `${element3}`
+        document.getElementById("img4name").innerText = `${elementname3}`
+
+        const element4 = pictures.splice(index,1)
+        const elementname4 = picturesname.splice(index,1)
+        img5.src = `${element4}`
+        document.getElementById("img5name").innerText = `${elementname4}`
+
+        const element5 = pictures.splice(index,1)
+        const elementname5 = picturesname.splice(index,1)
+        img6.src = `${element5}`
+        document.getElementById("img6name").innerText = `${elementname5}`
+
+        const element6 = pictures.splice(index,1)
+        const elementname6 = picturesname.splice(index,1)
+        img7.src = `${element6}`
+        document.getElementById("img7name").innerText = `${elementname6}`
+
+        const element7 = pictures.splice(index,1)
+        const elementname7 = picturesname.splice(index,1)
+        img8.src = `${element7}`
+        document.getElementById("img8name").innerText = `${elementname7}`
+
+        const element8 = pictures.splice(index,1)
+        const elementname8 = picturesname.splice(index,1)
+        img9.src = `${element8}`
+        document.getElementById("img9name").innerText = `${elementname8}`
+
+        const element9 = pictures.splice(index,1)
+        const elementname9 = picturesname.splice(index,1)
+        img10.src = `${element9}`
+        document.getElementById("img10name").innerText = `${elementname9}`
+
+        const element10 = pictures.splice(index,1)
+        const elementname10 = picturesname.splice(index,1)
+        img11.src = `${element10}`
+        document.getElementById("img11name").innerText = `${elementname10}`
+
+        const element11 = pictures.splice(index,1)
+        const elementname11 = picturesname.splice(index,1)
+        img12.src = `${element11}`
+        document.getElementById("img12name").innerText = `${elementname11}`
+
+        const element12 = pictures.splice(index,1)
+        const elementname12 = picturesname.splice(index,1)
+        img13.src = `${element12}`
+        document.getElementById("img13name").innerText = `${elementname12}`
+
+
+
+    
+        
+            
+
+
+        
+
+        
+        let playbtn = document.getElementById('playbtn');
+        playbtn.addEventListener('mouseover', e=> {
+            playbtn.style.transform = "scale(1.08)"
+            console.log('okay')
+        })
+    
+    
+
+        
+        
+
+
+
+</script>
+</body>
+
+
+</html>

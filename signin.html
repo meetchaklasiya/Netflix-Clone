@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+     * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    html{
+        font-size: 62.5%;
+    }
+    .container{
+        height: 95vh;
+    }
+    .container::before {
+        content: "";
+        background: url(/IN-en-20221206-popsignuptwoweeks-perspective_alpha_website_large.jpg) center center;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 1;
+        z-index: -2;
+    }
+        .container::after {
+        content: "";
+        background-color: black;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0.5;
+        z-index: -1;
+    }
+    .logo {
+        height: 6.5vh;
+    }
+
+    .leftside {
+        margin: 2% 3%;
+    }
+    .emailandstart1{
+        text-align: center;
+        margin-top: 1%;
+        
+       
+    }
+    .containerseventh{
+        width: 100%;
+        background-color: black;
+    }
+    .phonenumber{
+        margin-top: 3.0rem;
+        margin-left: 20%;
+        color:#737373 ;
+    }
+    .item{
+        display: flex;
+        color: #737373;
+        margin-left: 20%;
+    }
+    .netflixindia{
+        color: #737373;
+        margin-left: 20%;
+        padding-bottom: 2.0rem;
+    }
+    .ones,.twice,.thrice,.forth{
+        display: flex;
+        flex-direction: column;
+    }
+    #one1,#two1,#threee1,#four1{
+        margin-top: 4.0rem;
+    }
+    .one{
+        margin: 1.0rem 0;
+        margin-right: 0rem;
+    }
+    .two{
+        margin: 1.0rem 0rem;
+    }
+    .three{
+        margin: 1.0rem 0rem;
+    }
+    .four{
+        margin: 1.0rem 0rem;
+    }
+    #two3{
+        margin-top: 1.0rem;
+    }
+    #four2{
+        margin-top: 4.0rem;
+    }
+    .border {
+        background: transparent;
+        border-bottom: 0.8rem solid #222;
+        color: #fff;
+        margin-bottom: 0;
+    }
+    #language1{
+        height: 6vh;
+        margin: 2.0rem 20%;
+        background-color: transparent;
+        color: white;
+        font-size: 1.6rem;
+
+    }
+    .form{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    form{
+        background-color: rgb(0,0,0,0.86);
+        width: 28%;
+        padding: 6.0rem 4.8rem 4.0rem;
+    }
+    .sig{
+        color: white;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-size: 3.5rem;
+        margin-bottom: 3.0rem;
+    }
+    .inputtypes{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+    input::placeholder{
+        color: #8c8c8c;
+        font-size: 1.6rem;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+    }
+    input[type="text"]{
+        color: white;
+        font-size: 1.6rem;
+    }
+    #email{
+        background-color: #333;
+        height: 7vh;
+        width: 100%;
+        padding:1.0rem ;
+        border-radius: 0.8rem;
+        margin-bottom: 2.5rem;
+    }
+    #password{
+        background-color: #333;
+        height: 7vh;
+                width: 100%;
+        padding:1.0rem ;
+        border-radius: 0.8rem;
+        margin-bottom: 6.0rem;
+
+    }
+    .sign {
+        height: 6vh;
+        width: 100%;
+        font-size: 1.6rem;
+        color: white;
+        background-color: rgb(229, 9, 20);
+        border-radius: 0.8rem;
+        border: none;
+        cursor: pointer;
+        margin-bottom: 1.2rem;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        
+    }
+    .needhelp{
+        color: #b3b3b3;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 1.8rem;
+        margin-bottom: 2.0rem;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    #remember{
+        accent-color: grey;
+    }
+    .data{
+        display: flex;
+        margin-bottom: 2.0rem;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+    }
+    .newtonetflix{
+        color:#737373 ;
+        font-size: 1.8rem;
+    }
+    #now{
+        text-decoration: none;
+        font-size: 1.8rem;
+        color: #fff;
+    }
+    .protected{
+        color: #737373;
+        font-size: 1.5rem;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        margin-bottom: 5.0rem;
+    }
+    .footer{
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    @media (max-width:768px) {
+        html{
+            font-size: 50%;
+        }
+        form{
+            width:70%;
+        }
+        .containerseventh{
+            height: 60vh;
+        }
+    }
+
+    @media (min-width:768px) and (max-width:1300px) {
+        html{
+            font-size: 57%;
+        }
+        form{
+            width:50% ;
+        }
+    }
+</style>
+<body>
+    <div class="container">
+        <nav>
+
+            <div class="leftside">
+                <img class="logo" src="Netflix_2015_logo.svg.png" alt="" srcset="">
+            </div>
+    </nav>
+    <div class="form">
+        <form action="">
+            <div class="sig">Sign In</div>
+            <div class="inputtypes">
+                <input type="text" name="" id="email" placeholder="Email or Phone Number" required>
+                <input type="text" name="" id="password" placeholder="Password" required>
+            </div>
+            <div class="btn">
+                <a href="/signin"><button class="sign">Sign In</button></a>
+            </div>
+            <div class="needhelp">
+                <div class="mebox">
+                    <input type="checkbox" name="Remember me" id="remember" checked>Remember me
+                </div>
+                <div class="needhelpword">Need Help?</div>
+            </div>
+            <div class="data">
+                            <div class="newtonetflix">New to Netflix?  </div>
+                            <a href="" id="now"> Sign Up Now</a>
+            </div>
+            <div class="protected">This page is protected by Google reCAPTCHA to ensure you're not a bot. <a href="/learnmore" style="text-decoration: none;">Learnmore.</a></div>
+            </form>
+    </div>
+    </div>
+
+    <div class="containerseventh">
+        <div class="border"></div>
+        <div class="footer">
+            <div class="phonenumber">Questions? Call 000-800-919-1694</div>
+            <div class="item">
+                <div class="ones">
+                    <div id="one1" class="one">FAQ</div>
+                    <div id="two3" class="tw">Cookie Preferences</div>
+                </div>
+                <div class="twice">
+                    <div id="two1" class="two">Help Center</div>
+                    <div id="threee3" class="three">Corporate Information</div>
+                </div>
+                <div class="thrice">
+                    <div id="four2" class="four">Terms of use</div>
+                </div>
+                <div class="forth">
+                    <div id="four1" class="four">Privacy</div>
+                </div>
+            </div>
+            <select name="" id="language1">
+                <option value="English" selected>English</option>
+                <option value="Hindi">Hindi</option>
+            </select>
+        </div>
+    </div>
+    
+</body>
+</html>
